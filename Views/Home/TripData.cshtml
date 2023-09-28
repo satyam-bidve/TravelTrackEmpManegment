@@ -1,0 +1,138 @@
+﻿@model TravelTrackEmpManegment.Models.TripDetails
+
+@{
+    ViewBag.Title = "TripData";
+    var VehicalTypeList = new List<string>() { "Car","Bike" };
+}
+
+<h2> Update Trip Data</h2>
+
+@using (Html.BeginForm("TripDataHandel","Home",FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <!-- HTML5 Inputs -->
+    <div class="card mb-4">
+        <h5 class="card-header">HTML5 Inputs</h5>
+        <div class="card-body">
+            <div class="mb-3 row">
+                <label for="html5-text-input" class="col-md-2 col-form-label">Name</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.nameEmp, new { htmlAttributes = new { @class = "form-control" , id = "html5-text-input" } })
+                    @Html.ValidationMessageFor(model => model.nameEmp, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="html5-text-input" class="col-md-2 col-form-label">Emp Code</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.codeEmp, new { htmlAttributes = new { @class = "form-control", id = "html5-text-input" } })
+                    @Html.ValidationMessageFor(model => model.codeEmp, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="html5-text-input" class="col-md-2 col-form-label">Vehical No</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.vehicalNo, new { htmlAttributes = new { @class = "form-control", id = "html5-text-input" } })
+                    @Html.ValidationMessageFor(model => model.vehicalNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="mb-3 row">
+                <label for="html5-text-input" class="col-md-2 col-form-label">Vehical Type</label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(x => x.vehicalTpe, new SelectList(VehicalTypeList), "Select Your Role", new { @class = "form-control custom-select", style = "width: 100%" })
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="html5-text-input" class="col-md-2 col-form-label">Visit Location</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.daySchedule, new { htmlAttributes = new { @class = "form-control", id = "html5-text-input" } })
+                    @Html.ValidationMessageFor(model => model.daySchedule, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="html5-number-input" class="col-md-2 col-form-label">Start KM</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.startPointKM, new { htmlAttributes = new { @class = "form-control", id = "html5-text-input" } })
+                    @Html.ValidationMessageFor(model => model.startPointKM, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="html5-number-input" class="col-md-2 col-form-label">End KM</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.endPointKM, new { htmlAttributes = new { @class = "form-control", id = "html5-text-input" } })
+                    @Html.ValidationMessageFor(model => model.endPointKM, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="html5-number-input" class="col-md-2 col-form-label">Food Expences</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.foodEXP, new { htmlAttributes = new { @class = "form-control", id = "html5-text-input" } })
+                    @Html.ValidationMessageFor(model => model.foodEXP, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="html5-number-input" class="col-md-2 col-form-label">Meeting Expences</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.meetingEXP, new { htmlAttributes = new { @class = "form-control", id = "html5-text-input" } })
+                    @Html.ValidationMessageFor(model => model.meetingEXP, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="html5-number-input" class="col-md-2 col-form-label">Stay Expences</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.stayEXP, new { htmlAttributes = new { @class = "form-control", id = "html5-text-input" } })
+                    @Html.ValidationMessageFor(model => model.stayEXP, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="html5-number-input" class="col-md-2 col-form-label">Other Expences</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.otherEXP, new { htmlAttributes = new { @class = "form-control", id = "html5-text-input" } })
+                    @Html.ValidationMessageFor(model => model.otherEXP, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="mb-3 row">
+                <label for="html5-number-input" class="col-md-2 col-form-label">Start KM Reading</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.PhotoStart, new { @class = "form-control", @type = "file" })
+                    @Html.ValidationMessageFor(model => model.PhotoStart, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="html5-number-input" class="col-md-2 col-form-label">End KM Reading</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.PhotoEnd,  new { @class = "form-control" ,@type = "file" })
+                    @Html.ValidationMessageFor(model => model.PhotoEnd, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="exampleFormControlTextarea1" class="col-md-2 col-form-label">Day Remark</label>
+                <div class="col-md-12">
+                    @Html.TextAreaFor(model => model.dayRemark, new { htmlAttributes = new { @class = "form-control", id = "html5-text-input" } })
+                    @Html.ValidationMessageFor(model => model.dayRemark, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group m-5 ">
+                <div class="col-md-offset-3 col-md-12">
+                    <button type="submit" class="btn btn-success">Submit</button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+}
+
+
